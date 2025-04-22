@@ -455,3 +455,15 @@ def render_playblast(filepath,
     # although this doesn't seem to be needed.
     renderdata[c4d.RDATA_RENDERENGINE] = previous_render_engine
     return filepath
+
+def video_render(filepath,
+                    frame_start=None,
+                    frame_end=None,
+                    frame_step=1,
+                    sub_frames=1,
+                    global_matrix=False,
+                    selection=True,
+                    doc=None,
+                    verbose=False,
+                    **kwargs):
+    pass
