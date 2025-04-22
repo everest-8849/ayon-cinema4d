@@ -19,6 +19,10 @@ from . import lib
 if typing.TYPE_CHECKING:
     from typing import Optional, List, Tuple, Union
 
+import pyblish.api
+
+SETTINGS_CATEGORY = "cinema4d"
+
 
 def iter_instance_objects(doc):
     instance_ids = {AYON_INSTANCE_ID, AVALON_INSTANCE_ID}
@@ -300,3 +304,8 @@ class Cinema4DSingleObjLoader(Cinema4DLoader, ABC):
         container_node = container["node"]
         container_node.Remove()
         c4d.EventAdd()
+
+# 8849 render implementation
+class Cinema4DInstancePlugin(pyblish.api.InstancePlugin):
+    hosts = ["cinema4d"]
+    setting_category = SETTINGS_CATEGORY
